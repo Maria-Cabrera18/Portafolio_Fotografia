@@ -1,0 +1,1542 @@
+/* =========================================================
+   MI PORTAFOLIO — ESTILOS BASE
+   Paleta tomada del PDF proporcionado:
+   #13394C  azul profundo
+   #EFE9DD  crema
+   #E3D9CF  beige grisáceo
+   #121212  negro carbón
+   #D7C3AA  beige cálido
+
+   Tipografías del PDF:
+   Bauer Bodoni — títulos / editorial
+   Montserrat — textos / interfaz
+   ========================================================= */
+
+/* Si tienes el archivo de Bauer Bodoni en formato webfont,
+   puedes activarlo así:*/
+
+@font-face {
+    font-family: "Bauer Bodoni Bold";
+    src: url("../fonts/Bauer Bodoni Bold.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --blue: #13394C;
+    --cream: #EFE9DD;
+    --beige: #E3D9CF;
+    --black: #121212;
+    --sand: #D7C3AA;
+
+    --serif: "Bauer Bodoni Bold", "Bodoni 72", "Didot", "Times New Roman", serif;
+    --sans: "Montserrat", Arial, Helvetica, sans-serif;
+
+    --gap: 8px;
+    --pad: 10px;
+    --transition: 600ms cubic-bezier(.2, .7, .2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--black);
+}
+
+body {
+    min-width: 320px;
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+img,
+video {
+    display: block;
+    width: 100%;
+}
+
+img {
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+
+/* ================= HEADER ================= */
+
+.site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px;
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+.site-header > * {
+    pointer-events: auto;
+}
+
+.brand {
+    font-size: 9px;
+    line-height: 1.1;
+    letter-spacing: .14em;
+    font-weight: 500;
+}
+
+.main-nav {
+    display: flex;
+    gap: 28px;
+    font-size: 9px;
+    letter-spacing: .12em;
+}
+
+.main-nav a {
+    transition: opacity .3s ease;
+}
+
+.main-nav a:hover {
+    opacity: .5;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--blue);
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .65;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(18,18,18,.1), rgba(18,18,18,.8)),
+        radial-gradient(circle at 70% 25%, rgba(215,195,170,.18), transparent 35%);
+}
+
+.hero-content {
+    position: absolute;
+    left: 7vw;
+    bottom: 8vh;
+    max-width: 700px;
+}
+
+.eyebrow,
+.section-number {
+    font-size: 9px;
+    line-height: 1.4;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 18px 0;
+    font-family: var(--serif);
+    font-size: clamp(70px, 11vw, 180px);
+    font-weight: 400;
+    line-height: .76;
+    letter-spacing: -.05em;
+}
+
+.hero h1 em,
+.about-copy h2 em {
+    font-style: italic;
+    color: var(--sand);
+}
+
+.hero-intro {
+    max-width: 310px;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.scroll-link,
+.text-link {
+    display: inline-block;
+    margin-top: 28px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid currentColor;
+    font-size: 9px;
+    letter-spacing: .12em;
+}
+
+
+/* ================= PROJECTS ================= */
+
+.projects-section {
+    padding: 90px var(--pad) 10px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    padding: 0 5px 18px;
+}
+
+.section-heading h2 {
+    margin-top: 10px;
+    font-family: var(--serif);
+    font-size: clamp(42px, 6vw, 82px);
+    font-weight: 400;
+    line-height: .85;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px 18px;
+}
+
+.filter {
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    font-size: 8px;
+    letter-spacing: .1em;
+}
+
+.filter:hover,
+.filter.active {
+    border-bottom-color: var(--cream);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(420px, 45vw);
+    gap: var(--gap);
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--blue);
+}
+
+.project-card--tall {
+    grid-row: span 1;
+}
+
+.project-card--wide {
+    grid-column: span 2;
+}
+
+.project-card--text {
+    background: var(--black);
+    border: 1px solid rgba(239,233,221,.14);
+}
+
+.project-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.project-image img {
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.035);
+    filter: brightness(.62);
+}
+
+.project-hover {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 13px;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.project-card:hover .project-hover {
+    opacity: 1;
+}
+
+.project-hover > span,
+.project-hover p {
+    font-size: 8px;
+    letter-spacing: .1em;
+}
+
+.project-hover h3 {
+    margin: 10px 0 5px;
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 48px);
+    font-weight: 400;
+    line-height: .9;
+}
+
+.project-text {
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background:
+        radial-gradient(circle at 80% 0%, rgba(215,195,170,.24), transparent 35%),
+        linear-gradient(180deg, rgba(19,57,76,.55), var(--black));
+}
+
+.project-text h3 {
+    margin-top: auto;
+    margin-bottom: 18px;
+    font-family: var(--serif);
+    font-size: clamp(35px, 4vw, 64px);
+    font-weight: 400;
+    line-height: .82;
+}
+
+.project-text p {
+    max-width: 280px;
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+.project-text--plain {
+    justify-content: flex-start;
+    gap: 28px;
+    background: var(--black);
+}
+
+.project-text--plain p {
+    max-width: 270px;
+}
+
+
+/* ================= ABOUT ================= */
+
+/*
+   SOBRE MÍ
+   Mantiene la cuadrícula original de 3 columnas:
+   etiqueta / imagen / texto.
+*/
+
+.about-section {
+    min-height: 100vh;
+    padding: 130px var(--pad);
+
+    display: grid;
+    grid-template-columns: .7fr 1.15fr 1fr;
+    gap: var(--gap);
+    align-items: start;
+}
+
+/* ================= COLUMNA 01 ================= */
+
+.about-label {
+    min-height: 540px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-top: 1px solid rgba(239,233,221,.25);
+}
+
+.about-label .section-chapter {
+    color: var(--cream);
+    opacity: .7;
+}
+
+.about-label p {
+    margin: 0;
+
+    font-family: var(--serif);
+    font-size: clamp(42px, 4vw, 68px);
+    line-height: .85;
+    font-weight: 400;
+    letter-spacing: -.04em;
+
+    color: var(--cream);
+}
+
+/* ================= COLUMNA 02 / IMAGEN ================= */
+
+.about-image {
+    min-width: 0;
+    padding: 15px 15px 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: transparent;
+}
+
+/* Información cinematográfica */
+
+.film-info {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 9px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(239,233,221,.25);
+
+    font-family: var(--sans);
+    font-size: 8px;
+    line-height: 1;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+
+    color: var(--cream);
+}
+
+/* Contenedor controlado de la fotografía */
+
+.about-photo {
+    position: relative;
+
+    width: 100%;
+    height: min(520px, 42vw);
+
+    min-height: 400px;
+
+    overflow: hidden;
+    background: var(--blue);
+}
+
+/* Imagen */
+
+.about-photo > img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+
+    filter:
+        grayscale(10%)
+        contrast(1.08)
+        brightness(.9);
+
+    transition:
+        transform .8s cubic-bezier(.2,.7,.2,1),
+        filter .6s ease;
+}
+
+.about-photo:hover > img {
+    transform: scale(1.025);
+
+    filter:
+        grayscale(5%)
+        contrast(1.08)
+        brightness(.7);
+}
+
+/* ================= MARCAS DE ENCUADRE ================= */
+
+.frame-mark {
+    position: absolute;
+    z-index: 6;
+
+    width: 22px;
+    height: 22px;
+
+    opacity: .85;
+    pointer-events: none;
+
+    transition:
+        width .4s ease,
+        height .4s ease,
+        opacity .4s ease;
+}
+
+.frame-mark--tl {
+    top: 18px;
+    left: 18px;
+
+    border-top: 1px solid var(--cream);
+    border-left: 1px solid var(--cream);
+}
+
+.frame-mark--tr {
+    top: 18px;
+    right: 18px;
+
+    border-top: 1px solid var(--cream);
+    border-right: 1px solid var(--cream);
+}
+
+.frame-mark--bl {
+    bottom: 18px;
+    left: 18px;
+
+    border-bottom: 1px solid var(--cream);
+    border-left: 1px solid var(--cream);
+}
+
+.frame-mark--br {
+    bottom: 18px;
+    right: 18px;
+
+    border-bottom: 1px solid var(--cream);
+    border-right: 1px solid var(--cream);
+}
+
+/* ================= HOVER DE LA IMAGEN ================= */
+
+.about-image-hover {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding: 22px;
+
+    color: var(--cream);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(18,18,18,0) 42%,
+            rgba(18,18,18,.78) 100%
+        );
+
+    opacity: 0;
+    transition: opacity .45s ease;
+
+    pointer-events: none;
+}
+
+.about-photo:hover .about-image-hover {
+    opacity: 1;
+}
+
+.hover-project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    font-family: var(--sans);
+    font-size: 8px;
+    line-height: 1.35;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+
+    transform: translateY(10px);
+    opacity: 0;
+
+    transition:
+        transform .5s cubic-bezier(.2,.7,.2,1),
+        opacity .5s ease;
+}
+
+.about-photo:hover .hover-project-info {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.hover-action {
+    font-family: var(--sans);
+    font-size: 8px;
+    letter-spacing: .13em;
+
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--cream);
+
+    transform: translateY(10px);
+    opacity: 0;
+
+    transition:
+        transform .5s .08s ease,
+        opacity .5s .08s ease;
+}
+
+.about-photo:hover .hover-action {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ================= COLUMNA 03 / TEXTO ================= */
+
+.about-copy {
+    min-width: 0;
+    padding: 30px;
+
+    background: var(--cream);
+    color: var(--black);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-copy h2 {
+    margin: 30px 0;
+
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 95px);
+    font-weight: 400;
+    line-height: .82;
+    letter-spacing: -.04em;
+}
+
+.about-copy p:not(.eyebrow) {
+    max-width: 440px;
+    margin-bottom: 18px;
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.about-copy .text-link {
+    align-self: flex-start;
+}
+
+/* ================= CONTACTO — CHAPTER ================= */
+
+.contact-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.contact-section .section-chapter {
+    color: var(--cream);
+    opacity: .7;
+}
+
+.contact-section-title {
+    font-size: 8px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: .7;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-section {
+    min-height: 75vh;
+    padding: 100px 7vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--blue);
+}
+
+.contact-section h2 {
+    margin: 25px 0;
+    font-family: var(--serif);
+    font-size: clamp(75px, 14vw, 210px);
+    font-weight: 400;
+    line-height: .75;
+    letter-spacing: -.06em;
+}
+
+.contact-email {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 42px);
+    border-bottom: 1px solid rgba(239,233,221,.6);
+}
+
+.contact-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 8px;
+    letter-spacing: .1em;
+}
+
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    letter-spacing: .08em;
+    color: rgba(239,233,221,.55);
+}
+
+
+/* ================= FILTER STATE ================= */
+
+.project-card.is-hidden {
+    display: none;
+}
+
+/* =========================================================
+   FOOTER — ESTUDIA TECH
+   ========================================================= */
+
+.site-footer {
+
+    padding: 30px var(--pad) 35px;
+
+    border-top:
+        1px solid rgba(239,233,221,.25);
+
+    background: var(--black);
+
+    color: var(--cream);
+}
+
+
+.footer-credit {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 30px;
+}
+
+
+/* Copyright */
+
+.footer-copy {
+
+    font-family: var(--sans);
+
+    font-size: 8px;
+
+    line-height: 1.3;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    opacity: .55;
+}
+
+
+/* Estudia Tech */
+
+.footer-studio {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 5px;
+
+    color: var(--cream);
+
+    text-decoration: none;
+
+    font-family: var(--sans);
+
+    font-size: 8px;
+
+    line-height: 1.2;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+}
+
+
+.footer-studio span {
+
+    opacity: .5;
+}
+
+
+.footer-studio strong {
+
+    font-weight: 400;
+
+    opacity: .9;
+
+    transition:
+        opacity .3s ease,
+        letter-spacing .3s ease;
+}
+
+
+.footer-studio:hover strong {
+
+    opacity: 1;
+
+    letter-spacing: .16em;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 65vw;
+    }
+
+    .project-card--wide {
+        grid-column: span 2;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr 1.4fr;
+        align-items: start;
+    }
+
+    .about-label {
+        grid-column: span 2;
+        min-height: 90px;
+    }
+
+    .about-photo {
+        height: 500px;
+        min-height: 0;
+    }
+
+    .about-copy {
+        padding: 25px;
+    }
+
+    .contact-heading {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .site-header {
+        padding: 12px;
+    }
+
+    .main-nav {
+        position: fixed;
+        inset: 0;
+        padding: 80px 20px;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 22px;
+        background: var(--black);
+        transform: translateY(-100%);
+        transition: transform .5s ease;
+    }
+
+    .main-nav.is-open {
+        transform: translateY(0);
+    }
+
+    .main-nav a {
+        font-family: var(--serif);
+        font-size: 42px;
+    }
+
+    .menu-toggle {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        width: 28px;
+        height: 20px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .menu-toggle span {
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+    }
+
+    .hero-content {
+        left: 20px;
+        right: 20px;
+        bottom: 55px;
+    }
+
+    .projects-section {
+        padding-top: 70px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .filters {
+        justify-content: flex-start;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 125vw;
+    }
+
+    .project-card--wide,
+    .project-card--text {
+        grid-column: auto;
+    }
+
+    .project-card--text {
+        min-height: 380px;
+    }
+
+    .project-hover {
+        opacity: 1;
+        background: linear-gradient(
+            180deg,
+            rgba(18,18,18,.25),
+            rgba(18,18,18,.7)
+        );
+    }
+
+    /* SOBRE MÍ */
+
+    .about-section {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        padding-top: 80px;
+    }
+
+    .about-label {
+        width: 100%;
+        min-height: 100px;
+    }
+
+    .about-label p {
+        font-size: 44px;
+    }
+
+    .about-image {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .film-info {
+        margin-bottom: 16px;
+    }
+
+    .about-photo {
+        width: 100%;
+        height: 105vw;
+        min-height: 380px;
+        max-height: 550px;
+    }
+
+    /* En móvil la información queda visible porque no hay hover fiable. */
+
+    .about-image-hover {
+        opacity: 1;
+        background:
+            linear-gradient(
+                180deg,
+                transparent 42%,
+                rgba(18,18,18,.78) 100%
+            );
+    }
+
+    .hover-project-info,
+    .hover-action {
+        opacity: 1;
+        transform: none;
+    }
+
+    .about-copy {
+        width: 100%;
+        min-height: 600px;
+        padding: 25px;
+    }
+
+    .contact-heading {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .contact-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+.site-footer {
+
+    padding: 25px 20px 30px;
+}
+
+
+.footer-credit {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+
+.footer-studio {
+
+    align-items: flex-start;
+}
+
+/* ================= REDUCED MOTION ================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+
+    .hero-video {
+        display: none;
+    }
+}
+
+/* =========================================================
+   ABOUT — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .about-image {
+        min-height: 550px;
+    }
+
+    .about-label p {
+        font-size: 42px;
+    }
+
+    .film-info {
+        top: 12px;
+        left: 12px;
+    }
+
+    .frame-mark--tl {
+        top: 12px;
+        left: 12px;
+    }
+
+    .frame-mark--tr {
+        top: 12px;
+        right: 12px;
+    }
+
+    .frame-mark--bl {
+        bottom: 12px;
+        left: 12px;
+    }
+
+    .frame-mark--br {
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+
+/* =========================================================
+   ABOUT — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .about-label {
+        min-height: 90px;
+
+        padding: 15px;
+    }
+
+
+    .about-label p {
+
+        writing-mode: horizontal-tb;
+
+        transform: none;
+
+        font-size: 42px;
+
+        align-self: flex-start;
+
+        margin-top: 20px;
+    }
+
+
+    .about-image {
+
+        min-height: 115vw;
+
+        height: 115vw;
+    }
+
+
+    /*
+        En móvil mostramos la información siempre.
+        Esto evita depender del hover,
+        ya que no existe cursor en muchos teléfonos.
+    */
+
+    .about-image-hover {
+
+        opacity: 1;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(18,18,18,0) 45%,
+                rgba(18,18,18,.75) 100%
+            );
+    }
+
+
+    .hover-project-info {
+
+        transform: none;
+
+        opacity: 1;
+    }
+
+
+    .hover-action {
+
+        transform: none;
+
+        opacity: 1;
+    }
+
+
+    .film-info {
+
+        font-size: 7px;
+    }
+}
+
+
+/* =========================================================
+   GALERÍA DE CATEGORÍA (galeria.html)
+   ========================================================= */
+
+.back-link {
+    display: inline-block;
+    margin: 110px 0 0 var(--pad);
+    padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+    font-size: 9px;
+    letter-spacing: .12em;
+    transition: opacity .3s ease;
+}
+
+.back-link:hover {
+    opacity: .6;
+}
+
+/* ================= HERO CINEMATOGRÁFICO ================= */
+
+.cat-hero {
+    position: relative;
+    margin: 20px var(--pad) 0;
+    aspect-ratio: 16 / 8;
+    max-height: 640px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--blue);
+}
+
+.cat-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(8%) contrast(1.1) brightness(.72) saturate(1.05);
+}
+
+.cat-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18,18,18,0) 45%, rgba(18,18,18,.85) 100%);
+}
+
+.cat-hero-tag,
+.cat-hero-scroll {
+    position: absolute;
+    bottom: 20px;
+    z-index: 2;
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.cat-hero-tag {
+    left: 24px;
+}
+
+.cat-hero-scroll {
+    right: 24px;
+    opacity: .7;
+}
+
+/* ================= CUERPO: INFO + CUADRÍCULA ================= */
+
+.cat-body {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 32px;
+    padding: 0 var(--pad) 100px;
+}
+
+.cat-info {
+    padding-top: 44px;
+    border-top: 1px solid rgba(239, 233, 221, .2);
+     min-width: 0;
+}
+
+.cat-info .eyebrow {
+    display: block;
+    margin-bottom: 14px;
+}
+
+.cat-info h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(34px, 3vw, 46px);
+    line-height: .92;
+    letter-spacing: -.02em;
+    margin-bottom: 10px;
+    overflow-wrap: break-word;
+}
+
+.cat-meta {
+    font-size: 11px;
+    letter-spacing: .06em;
+    opacity: .7;
+    margin-bottom: 26px;
+}
+
+.cat-details {
+    margin-bottom: 24px;
+}
+
+.cat-details div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(239, 233, 221, .12);
+    font-size: 10px;
+    letter-spacing: .05em;
+}
+
+.cat-details dt {
+    opacity: .55;
+    text-transform: uppercase;
+}
+
+.cat-details dd {
+    text-align: right;
+}
+
+.cat-desc {
+    font-size: 12px;
+    line-height: 1.7;
+    opacity: .85;
+    max-width: 280px;
+}
+
+/* ================= CUADRÍCULA ASIMÉTRICA (categorías tipo evento) ================= */
+
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: 90px;
+    gap: 8px;
+    margin-top: 44px;
+}
+
+.cat-grid figure {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--blue);
+    cursor: pointer;
+}
+
+.cat-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.cat-grid figure:hover img {
+    transform: scale(1.035);
+    filter: brightness(.75);
+}
+
+.g1 { grid-column: span 3; grid-row: span 4; }
+.g2 { grid-column: span 3; grid-row: span 2; }
+.g3 { grid-column: span 2; grid-row: span 2; }
+.g4 { grid-column: span 2; grid-row: span 2; }
+.g5 { grid-column: span 2; grid-row: span 2; }
+.g6 { grid-column: span 4; grid-row: span 2; }
+.g7 { grid-column: span 2; grid-row: span 3; }
+.g8 { grid-column: span 4; grid-row: span 3; }
+
+/* Tarjeta de descripción — el "diseño en particular" dentro de la cuadrícula */
+
+.cat-caption {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: var(--cream);
+    color: var(--black);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+}
+
+.cat-caption span {
+    font-size: 8px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    opacity: .5;
+}
+
+.cat-caption p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.35;
+    margin-top: 12px;
+}
+
+/* ================= CUADRÍCULA SIMPLE (Retratos / Productos) ================= */
+
+.cat-grid--simple {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: unset;
+}
+
+.cat-grid--simple figure {
+    grid-column: span 1;
+    grid-row: span 1;
+    aspect-ratio: 4 / 5;
+}
+
+/* ================= ESTADO VACÍO ================= */
+
+.gallery-vacio {
+    padding: 0 var(--pad) 120px;
+    font-size: 11px;
+    letter-spacing: .05em;
+    opacity: .6;
+}
+
+.gallery-vacio[hidden] {
+    display: none;
+}
+
+/* ================= LIGHTBOX ================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(18, 18, 18, .96);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .35s ease;
+}
+
+.lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.lightbox-image {
+    max-width: 88vw;
+    max-height: 84vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    color: var(--cream);
+    font-size: 20px;
+    line-height: 1;
+    padding: 10px;
+    transition: opacity .3s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    opacity: .6;
+}
+
+.lightbox-close {
+    top: 18px;
+    right: 18px;
+}
+
+.lightbox-prev {
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    letter-spacing: .12em;
+    color: var(--cream);
+    opacity: .7;
+}
+
+/* ================= GALERÍA — RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .cat-body {
+        grid-template-columns: 1fr;
+    }
+
+    .cat-info {
+        border-top: none;
+        padding-top: 24px;
+    }
+
+    .cat-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-auto-rows: 70px;
+    }
+
+    .g1, .g2, .g6, .g8 {
+        grid-column: span 4;
+    }
+
+    .g3, .g4, .g5, .g7, .cat-caption {
+        grid-column: span 2;
+    }
+
+    .cat-grid--simple {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+
+    .back-link {
+        margin-top: 90px;
+    }
+
+    .cat-hero {
+        aspect-ratio: 4 / 5;
+        max-height: 520px;
+        margin-top: 16px;
+    }
+
+    .cat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 130px;
+    }
+
+    .g1, .g2, .g3, .g4, .g5, .g6, .g7, .g8, .cat-caption {
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+
+    .cat-grid--simple {
+        grid-template-columns: 1fr;
+    }
+
+    .cat-grid--simple figure {
+        grid-column: span 1;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
