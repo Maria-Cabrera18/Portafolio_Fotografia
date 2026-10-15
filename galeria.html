@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Galería de proyecto — Randy Roseler, fotografía y producciones audiovisuales.">
+    <link rel="icon" type="image/png" href="img/favicon_acuarela.png">
+
+    <title>Galería — Randy Roseler</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <header class="site-header" id="inicio">
+        <a class="brand" href="index.html#inicio">Randy<br>Roseler</a>
+
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a href="index.html#proyectos">PROYECTOS</a>
+            <a href="index.html#sobre-mi">SOBRE MÍ</a>
+            <a href="index.html#contacto">CONTACTO</a>
+        </nav>
+    </header>
+
+    <main>
+        <a class="back-link" href="index.html#proyectos">← VOLVER A PROYECTOS</a>
+
+        <!-- FOTO PRINCIPAL / HERO CINEMATOGRÁFICO -->
+       <!-- FOTO PRINCIPAL / HERO CINEMATOGRÁFICO -->
+<section class="cat-hero media-frame" id="cat-hero">
+
+    <!-- El contenedor media-photo encierra la imagen y sus bordes -->
+    <div class="media-photo">
+
+        <!-- 1. BARRA CINEMATOGRÁFICA SUPERIOR (Alineada con la foto) -->
+        <div class="media-film-info">
+            <span id="cat-hero-roll">ROLL 01</span>
+            <span id="cat-hero-frame">FRAME 001</span>
+        </div>
+
+        <!-- 2. IMAGEN -->
+        <img id="cat-hero-img" src="" alt="">
+
+        <!-- 3. MARCAS DE ENCUADRE EN LAS ESQUINAS -->
+        <span class="media-mark media-mark--tl"></span>
+        <span class="media-mark media-mark--tr"></span>
+        <span class="media-mark media-mark--bl"></span>
+        <span class="media-mark media-mark--br"></span>
+
+        <!-- 4. CONTENIDO DESPLEGABLE EN HOVER -->
+        <div class="media-hover">
+            <div class="media-hover-info">
+                <span id="cat-hero-hover-title">R. Roseler</span>
+                <span id="cat-hero-hover-tag">PHOTOGRAPHER</span>
+                <span id="cat-hero-hover-role">AUDIOVISUAL CREATOR</span>
+            </div>
+            <span class="media-view">DESLIZA PARA VER MÁS ↓</span>
+        </div>
+
+    </div>
+
+</section>
+        <section class="cat-body">
+
+            <aside class="cat-info">
+                <span class="eyebrow" id="galeria-chapter">GALERÍA</span>
+                <h1 id="galeria-titulo">Cargando…</h1>
+                <p class="cat-meta" id="galeria-subtitulo" hidden></p>
+
+                <dl class="cat-details" id="galeria-detalles" hidden></dl>
+
+                <p class="cat-desc" id="galeria-descripcion"></p>
+            </aside>
+
+            <!-- CUADRÍCULA DE FOTOS: se genera automáticamente con js/galeria.js -->
+            <div class="cat-grid" id="galeria-grid" aria-label="Fotografías de la galería"></div>
+
+        </section>
+
+        <!-- SECCIONES INTERNAS: se usan solo en galerías tipo "medios"
+             (varias coberturas mostradas por separado dentro de la misma página) -->
+        <div id="galeria-secciones"></div>
+
+        <!-- MENSAJE SI AÚN NO HAY FOTOS CARGADAS -->
+        <p class="gallery-vacio" id="galeria-vacio" hidden>
+            Todavía no hay fotos cargadas en esta categoría.
+        </p>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+    <div class="footer-credit">
+        <a class="side-left" href="index.html#inicio">© 2026 Randy Roseler</a>
+
+        <a href="404.html" class="footer-studio" target="_blank" rel="noopener">
+            <span>WEB DESIGN &amp; DEVELOPMENT</span>
+            <strong>ESTUDIA TECH ↗</strong>
+            </a>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX: visor de foto ampliada modificada para video-->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+
+    <button class="lightbox-close" aria-label="Cerrar galería ampliada">✕</button>
+
+    <button class="lightbox-prev" aria-label="Foto anterior">←</button>
+
+    <img class="lightbox-image" id="lightbox-image" alt="">
+
+    <video
+        class="lightbox-video"
+        id="lightbox-video"
+        controls
+        playsinline
+        hidden>
+    </video>
+
+    <button class="lightbox-next" aria-label="Foto siguiente">→</button>
+
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+
+</div>
+
+    <script src="js/main.js"></script>
+    <script src="js/galeria-datos.js"></script>
+    <script src="js/galeria.js"></script>
+</body>
+</html>
