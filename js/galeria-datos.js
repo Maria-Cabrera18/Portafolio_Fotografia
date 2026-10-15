@@ -43,7 +43,7 @@ const GALERIAS = {
         ],
         descripcion: "Una jornada del Primavera Sound Barcelona junto a Resumido, documentando a sus artistas y la energía del festival a través de una cobertura fotográfica de mirada editorial.",
         fotos: [
-            {src: "img\\galerias_optmizado\\Primavera_sound\\foto1.webp", tipo: "vertical"},
+            {src: "img/galeria/Primavera_sound/foto1.webp", tipo: "vertical"},
             {src: "img\\galerias_optmizado\\Primavera_sound\\foto2.webp", tipo: "vertical"},
             {src: "img\\galerias_optmizado\\Primavera_sound\\foto3.webp", tipo: "vertical"},
             {src: "img\\galerias_optmizado\\Primavera_sound\\foto4.webp", tipo: "vertical"},
