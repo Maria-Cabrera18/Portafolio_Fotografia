@@ -141,7 +141,7 @@ const GALERIAS = {
         frame: "FRAME 001",
         titulo: "ASUNCIÓN FASHION WEEK",
         subtitulo: "2025",
-        portada: "img/galeria/Asuncion_Fashion_Week/foto_principal.webp",
+        portada: "img/galeria/Asuncion_Fashion_week/foto_principal.webp",
         detalles: [
             { label: "Ubicación", valor: "Asunción, Paraguay" },
             { label: "Rol", valor: "Cobertura de pasarela" }
