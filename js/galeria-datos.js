@@ -293,6 +293,12 @@ const GALERIAS = {
         descripcion: "Del encuadre a la historia. Proyectos audiovisuales donde la imagen, el movimiento y la narrativa se encuentran para contar algo.",
         fotos: [
            {src: "img/galeria/Audiovisual/audiovisual1.mp4", tipo: "vertical", formato: "video"},
+           {src: "img/galeria/Audiovisual/Trago_fresa_negra_web.mp4", tipo: "vertical", formato: "video"},
+           {src: "img/galeria/Audiovisual/Fresa_negra_Gleu_web_ligero.mp4", tipo: "vertical", formato: "video"},
+           {src: "img/galeria/Audiovisual/1117_web.mp4", tipo: "vertical", formato: "video"},
+           {src: "img/galeria/Audiovisual/1113_web.mp4", tipo: "vertical", formato: "video"},
+           {src: "img/galeria/Audiovisual/1112_web.mp4", tipo: "vertical", formato: "video"},
+           
         ]
     }
 
